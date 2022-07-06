@@ -12,30 +12,29 @@ class _AlignScreenState extends State<AlignScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.indigo,
-        centerTitle: true,
-        title: const Text('Align Animation'),
-      ),
-      body: SizedBox(
-        width: double.infinity,
-        height: double.infinity,
-        child: AnimatedAlign(
-          alignment: _isMoved ? Alignment.topRight : Alignment.bottomLeft,
-          duration: const Duration(seconds: 2),
-          curve: Curves.easeIn,
-          child: Image.asset('assets/4stars.png'),
+        appBar: AppBar(
+          backgroundColor: Colors.indigo,
+          centerTitle: true,
+          title: const Text('Align Animation'),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.indigo,
-        onPressed: () {
-          setState(() {
-            _isMoved = !_isMoved;
-          });
-        },
-        child: Icon(_isMoved ? Icons.move_down : Icons.move_up),
-      ),
-    );
+        body: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: AnimatedAlign(
+            alignment: _isMoved ? Alignment.topRight : Alignment.bottomLeft,
+            duration: const Duration(seconds: 2),
+            curve: Curves.easeIn,
+            child: Image.asset('assets/4stars.png'),
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.indigo,
+          onPressed: () {
+            setState(() {
+              _isMoved = !_isMoved;
+            });
+          },
+          child: Icon(_isMoved ? Icons.move_down : Icons.move_up),
+        ));
   }
 }
