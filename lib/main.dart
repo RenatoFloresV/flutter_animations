@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animation/screens/align_animation.dart';
-import 'package:flutter_animation/screens/animated_builder.dart';
-import 'package:flutter_animation/screens/animated_container.dart';
-import 'package:flutter_animation/screens/animated_cross_fade.dart';
-import 'package:flutter_animation/screens/animated_default_text_style.dart';
-import 'package:flutter_animation/screens/animated_list_state.dart';
-import 'package:flutter_animation/screens/animated_modal_barrier.dart';
-import 'package:flutter_animation/screens/animated_opacity.dart';
-import 'package:flutter_animation/screens/animated_physical_model.dart';
-import 'package:flutter_animation/screens/animated_positioned.dart';
-import 'package:flutter_animation/screens/animated_size.dart';
-import 'package:flutter_animation/screens/animated_widget.dart';
 
-void main() => runApp(const MyApp());
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+
+import 'screens/index.dart';
+
+void main() {
+  //Keep Splash Screen until initialisation has completed
+  // ignore: deprecated_member_use
+  FlutterNativeSplash.removeAfter(initialization);
+  runApp(
+    const MyApp(),
+  );
+}
+
+Future initialization(BuildContext context) async {
+  // do initialization work
+  return Future.delayed(const Duration(seconds: 1));
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -80,7 +84,7 @@ class HomeScreen extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         constraints: const BoxConstraints(
-          minWidth: 180,
+          minWidth: 200,
           minHeight: 30,
         ),
         child: ElevatedButton(
